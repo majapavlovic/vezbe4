@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS `rest` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `rest`;
+CREATE TABLE IF NOT EXISTS `kategorije` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kategorija` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+CREATE TABLE IF NOT EXISTS `novosti` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `naslov` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `tekst` text COLLATE utf8_unicode_ci NOT NULL,
+  `datumvreme` datetime NOT NULL,
+  `kategorija_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+INSERT INTO `kategorije` (`id`, `kategorija`) VALUES
+(1, 'IT'),
+(2, 'Automobili'),
+(3, 'Zabava');
+
+INSERT INTO `novosti` (`id`, `naslov`, `tekst`, `datumvreme`, `kategorija_id`) VALUES
+(1, 'Facebook uveo dislike za Messenger', 'Like dugme postalo je ikona socijalnih mreža, i očigledno, Facebooka. Međutim, postoje trenuci kada je potrebno i dislike dugme, ali ono nije postojalao, do sada.', '2013-12-18 00:55:38', 1),
+(2, 'Amazonov telefon stiže 2014?', 'Glasine u vezi sa mogućim smartfonom kompanije Amazon postoje već neko vreme, ali čini se da se polako bližimo datumu predstavljanja.', '2013-12-18 00:56:21', 1),
+(3, 'Godišnji e-otpad kao 11 Keopsovih piramida', 'Jedan od vodećih globalnih ekoloških problema je električni i elektronski otpad (e-otpad), koji nastaje brzim zastarevanjem elektronskih uređaja.', '2013-12-18 00:57:20', 1),
+(4, 'Kako je živeti prema Frenklinovom rasporedu?', 'Mnogo pre nego što su nastale prve aplikacije za pravljenje rasporeda dnevnih obaveza, Bendžamin Frenklin je sa velikim uspehom planirao svoje zadatke.', '2013-07-15 12:15:28', 3),
+(5, 'Kriza - a prodaja automobila u porastu', 'Prodaja novih automobila porasla je u novembru u nekoliko zemalja Evropske unije koje su ozbiljno uzdrmane krizom.', '2013-11-03 22:27:32', 2);
